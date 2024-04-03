@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>A Fresh Start - Matthew Turland</title>
+        <meta name="description" content="For a while, I've been considering moving to a static site generator for easier maintainability. Ultimately, I made the decision to roll my own solution...">
+        <meta name="theme-color" content="00908F">
+        <link rel="stylesheet" href="/css/tailwind.css?id=d85c79343964b7387a99">
+                <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Matthew Turland">
+        
+        <script src="/js/site.js?id=21ace46f226931347224"></script>
+    </head>
+    <body class="bg-white font-sans leading-normal text-grey-800 px-4 sm:px-10" x-data="{ showMobileNav: false }">
+        <nav class="flex flex-row-reverse lg:flex-row items-center justify-between lg:justify-start flex-wrap py-10 max-w-5xl mx-auto">
+    <div class="text-md antialiased font-medium">
+        <a href="/" class="block text-xl lg:inline-block lg:mr-12 font-black">Matthew Turland</a>
+    </div>
+    <div class="block lg:hidden">
+        <button class="flex items-center px-1 text-gray-800" x-bind:class="{'hidden': showMobileNav}" @click="showMobileNav = true">
+            <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Open Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+        </button>
+        <button class="items-center px-1 text-gray-800" x-bind:class="{'flex': showMobileNav, 'hidden': ! showMobileNav}" @click="showMobileNav = false" x-cloak>
+            <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Close Menu</title>
+                <path
+                    d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
+            </svg>
+        </button>
+    </div>
+    <div class="w-full lg:w-auto lg:flex lg:clear items-center" @click.away="showMobileNav = false" x-bind:class="{ 'hidden': ! showMobileNav }">
+                <a href="/archive" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Blog
+        </a>
+                <a href="/about" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            About Me
+        </a>
+                <a href="/contact" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Contact Me
+        </a>
+                <a href="/code" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Portfolio
+        </a>
+                <a href="/publications" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Publications
+        </a>
+                <a href="/presentations" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Presentations
+        </a>
+        
+    </div>
+    <div class="flex flex-grow justify-end mt-6 lg:mt-0">
+                <a href="https://github.com/elazar" class="ml-6 lg:ml-4" aria-label="Github" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 16 16" width="16" height="16">><g transform="matrix(0.6666666666666666,0,0,0.6666666666666666,0,0)"><path d="M12,0.28C5.373,0.278-0.002,5.649-0.004,12.276c-0.002,5.197,3.342,9.804,8.284,11.414h0.29 c0.551,0.034,1.026-0.385,1.06-0.936c0.003-0.041,0.003-0.083,0-0.124v-0.21c0-0.17,0-0.4,0-1.09c-0.02-0.132-0.092-0.251-0.2-0.33 c-0.118-0.095-0.272-0.132-0.42-0.1c-2.68,0.58-3.25-1.1-3.29-1.21C5.384,18.801,4.784,18.037,4,17.5 c-0.047-0.041-0.097-0.077-0.15-0.11c0.116-0.063,0.249-0.087,0.38-0.07c0.511,0.071,0.948,0.405,1.15,0.88 c0.804,1.4,2.572,1.913,4,1.16c0.15-0.065,0.258-0.2,0.29-0.36c0.038-0.463,0.236-0.897,0.56-1.23 c0.206-0.183,0.225-0.499,0.042-0.706c-0.081-0.091-0.191-0.149-0.312-0.164c-2.37-0.27-4.79-1.1-4.79-5.19 c-0.02-1.027,0.356-2.023,1.05-2.78C6.351,8.786,6.386,8.579,6.31,8.4C6.032,7.624,6.036,6.774,6.32,6 c0.924,0.164,1.791,0.559,2.52,1.15c0.122,0.086,0.277,0.112,0.42,0.07c0.893-0.242,1.814-0.367,2.74-0.37 c0.929,0.001,1.854,0.125,2.75,0.37c0.14,0.039,0.291,0.013,0.41-0.07c0.73-0.589,1.597-0.984,2.52-1.15 c0.272,0.77,0.272,1.61,0,2.38c-0.076,0.179-0.041,0.386,0.09,0.53c0.687,0.75,1.062,1.733,1.05,2.75c0,4.09-2.43,4.91-4.81,5.18 c-0.275,0.029-0.474,0.274-0.446,0.549c0.013,0.129,0.076,0.248,0.176,0.331c0.448,0.463,0.671,1.099,0.61,1.74v3.18 c-0.01,0.317,0.122,0.621,0.36,0.83c0.303,0.227,0.696,0.298,1.06,0.19c6.285-2.103,9.676-8.902,7.573-15.187 C21.71,3.592,17.147,0.296,12,0.28z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+        </a>
+                <a href="https://phpc.social/@elazar" class="ml-6 lg:ml-4" aria-label="Mastodon" rel="me">
+            <?xml version="1.0" standalone="no"?> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" > <svg class="fill-current h-6 w-8 hover:text-teal" width="1034px" height="1034px" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"> <path fill="currentColor" d="M499 112q-93 1 -166 11q-81 11 -128 33l-14 8q-16 10 -32 25q-22 21 -38 47q-21 33 -32 73q-14 47 -14 103v37q0 77 1 119q3 113 18 188q19 95 62 154q50 67 134 89q109 29 210 24q46 -3 88 -12q30 -7 55 -17l19 -8l-4 -75l-22 6q-28 6 -57 10q-41 6 -78 4q-53 -1 -80 -7 q-43 -8 -67 -30q-29 -25 -35 -72q-2 -14 -2 -29l25 6q31 6 65 10q48 7 93 9q42 2 92 -2q32 -2 88 -9t107 -30q49 -23 81.5 -54.5t38.5 -63.5q9 -45 13 -109q4 -46 5 -97v-41q0 -56 -14 -103q-11 -40 -32 -73q-16 -26 -38 -47q-15 -15 -32 -25q-12 -8 -14 -8 q-46 -22 -127 -33q-74 -10 -166 -11h-3zM367 267q73 0 109 56l24 39l24 -39q36 -56 109 -56q63 0 101 43t38 117v239h-95v-232q0 -74 -61 -74q-69 0 -69 88v127h-94v-127q0 -88 -69 -88q-61 0 -61 74v232h-95v-239q0 -74 38 -117t101 -43z" /> </svg>
+        </a>
+                <a href="https://ko-fi.com/elazar" class="ml-6 lg:ml-4" aria-label="Ko-Fi" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" aria-labelledby="simpleicons-ko-fi-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-ko-fi-icon">Ko-fi icon</title><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
+        </a>
+                <a href="/feed.xml" class="ml-6 lg:ml-4" aria-label="Feed" rel="me">
+            <?xml version="1.0" encoding="iso-8859-1"?> <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --> <svg class="fill-current h-6 w-8 hover:text-teal" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 448 448" style="enable-background:new 0 0 448 448;" xml:space="preserve"> <g> <g> <circle cx="64" cy="384" r="64"/> </g> </g> <g> <g> <path d="M0,149.344v85.344c117.632,0,213.344,95.68,213.344,213.312h85.312C298.656,283.328,164.672,149.344,0,149.344z"/> </g> </g> <g> <g> <path d="M0,0v85.344C200,85.344,362.688,248,362.688,448H448C448,200.96,247.04,0,0,0z"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
+        </a>
+                <a href="mailto:me@matthewturland.com" class="ml-6 lg:ml-4" aria-label="Email" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 16 16" width="16" height="16">><g transform="matrix(0.6666666666666666,0,0,0.6666666666666666,0,0)"><path d="M 2.25,4.5h19.5c0.828,0,1.5,0.672,1.5,1.5v12c0,0.828-0.672,1.5-1.5,1.5H2.25c-0.828,0-1.5-0.672-1.5-1.5V6 C0.75,5.172,1.422,4.5,2.25,4.5z " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 15.687,9.975L19.5,13.5 " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 8.313,9.975L4.5,13.5 " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 22.88,5.014l-9.513,6.56 c-0.823,0.568-1.911,0.568-2.734,0L1.12,5.014" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+        </a>
+        
+    </div>
+</nav>
+
+        <div class="max-w-5xl mx-auto relative content">
+    <article class="max-w-2xl mx-auto">
+        <h1>A Fresh Start</h1>
+        <div class="bg-gray-800 inline-block text-sm mb-16 pr-4 pl-16 -ml-16 uppercase tracking-widest text-white py-1 rounded-r-full">
+            Published
+                            in <a href="/archive/tags/php" class="text-teal-light no-underline hover:text-white">PHP</a>, <a href="/archive/tags/meta" class="text-teal-light no-underline hover:text-white">Meta</a>, <a href="/archive/tags/content-management" class="text-teal-light no-underline hover:text-white">Content Management</a>
+                        on May 13, 2017
+        </div>
+        <div class="content">
+            <p>This blog has had several incarnations. Originally, it was hosted using a different domain name because my <a href="https://en.wikipedia.org/wiki/Vanity_domain">vanity domain</a> wasn't available at the time; I snatched it up later when its original owner did not renew it. If memory serves, I used a custom-written blog at first, and eventually transitioned to <a href="https://en.wikipedia.org/wiki/Habari">Habari</a> and later&nbsp;<a href="https://wordpress.org">WordPress</a>.</p>
+<p>I do want to stress that there was nothing wrong with any of these solutions.  They served my needs at a particular point in time and ceased to be the ideal solution for me at a later time. That pattern is merely continuing its&nbsp;cycle.</p>
+<p>To that effect, it seems I've come full circle. For a while, I've been considering moving to a <a href="https://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/">static site generator</a> for easier maintainability. I reviewed solutions like <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://sculpin.io">Sculpin</a>, <a href="http://spress.yosymfony.com">Spress</a>, and <a href="https://gohugo.io">Hugo</a>.  Ultimately, I made the decision to roll my own solution&nbsp;again.</p>
+<h2>Requirements</h2>
+<p>The focal point of this new transition was simplicity, in everything from the aesthetic design and backing toolset to the hosting and deployment&nbsp;process.</p>
+<p><a href="https://php.net">PHP</a> is my <a href="https://en.wikipedia.org/wiki/Lingua_franca"><em>lingua franca</em></a>, so I wanted to be able to use it to minimize mental friction in the process of transitioning and maintaining the&nbsp;blog.</p>
+<p>The choice of using a static site generator was partly influenced by being able to keep content under version control on <a href="https://github.com/">GitHub</a> and to easily deploy and host for free using <a href="https://pages.github.com">GitHub Pages</a> with a <a href="https://help.github.com/articles/quick-start-setting-up-a-custom-domain/">custom&nbsp;domain</a>.</p>
+<p>I enjoy writing content in <a href="http://commonmark.org">Markdown</a> and wanted to be able to do so for the next iteration of this blog. Ideally, I also wanted the option to extend the parsing of Markdown content to add features as needed in the&nbsp;future.</p>
+<p>With regard to the structure of the site itself, I wanted to maintain several static pages as well as posts authored over time, where the index page would house the latest individual post and site navigation would include a link to an archive of all past posts in reverse chronological&nbsp;order.</p>
+<p>To avoid breaking any more critical existing URLs indexed by search engines, I needed to have some control over URLs used for both pages and posts. I settled on a directory structure mimicing existing WordPress URLs and containing static HTML index files, which avoids the need for any web server URL&nbsp;rewriting.</p>
+<h2>Building the&nbsp;Generator</h2>
+<p>I wanted a simple PHP templating engine, as I expected to have few fairly and relatively basic templates. This turned out to be the case: I ended up with one template for layout and one for the archive page. I settled on&nbsp;<a href="http://platesphp.com"><code>league/plates</code></a>.</p>
+<p>Next, I needed something to parse the Markdown files I would use for content. I decided to use <a href="http://commonmark.thephpleague.com"><code>league/commonmark</code></a>, as it would allow for customization of both parsing and&nbsp;rendering.</p>
+<p>The next need I encountered was for generating <a href="https://en.wikipedia.org/wiki/Semantic_URL#Slug">slugs</a> based on post titles, which would allow me to create filesystem-safe directory names for each post.  After some digging on <a href="https://packagist.org/">Packagist</a>, I managed to find <a href="https://github.com/cocur/slugify"><code>cocur/slugify</code></a>, which does the job&nbsp;perfectly.</p>
+<p>My build script iterates over designated directories for pages and posts. For pages, it creates root-level paths using the name of the content files. For example, <code>content/pages/about.md</code> is used to generate&nbsp;<code>about/index.html</code>.</p>
+<p>Posts are a bit more complicated. The build script uses the <a href="http://commonmark.thephpleague.com"><code>league/commonmark</code></a> parser to walk over an <a href="http://commonmark.thephpleague.com/customization/abstract-syntax-tree/">AST</a> representing the parsed Markdown. The first top-level <code>Heading</code> element is assumed to be the title. The first <code>Emphasis</code> (i.e. italic) element following the title is assumed to be the date. From these two bits of data, a directory path of <code>YYYY/MM/DD/title-slug</code> is&nbsp;derived.</p>
+<p>The rest of the process is simply injecting Markdown content converted to HTML into templates and writing the result to static HTML index&nbsp;files.</p>
+<p>I've released this generator with the name <a href="http://github.com/elazar/scribing">Scribing</a> under the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>. Feel free to download and play with it. I hope you'll consider using it for your own site so that it can be as helpful to you as it has been to&nbsp;me.</p>
+<h2>Creating the&nbsp;Design</h2>
+<p>For larger displays, I wanted a simple two-column layout focusing on the content with a smaller column for navigation. For smaller displays, I wanted the layout to be responsive, shifting the navigation to a smaller collapsible top bar to consume less screen real&nbsp;estate.</p>
+<p>I considered using <a href="https://v4-alpha.getbootstrap.com/layout/responsive-utilities/">Bootstrap</a> to do this, but because my use case was fairly simple, I ultimately decided to just write a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media query</a> myself. Bootstrap's documentation was fairly useful for determining device widths to consider, though. The <a href="https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode">Responsive Design Mode</a> in Firefox was particularly useful for testing as I built this&nbsp;out.</p>
+<p>Likewise, I could have used something like <a href="https://jquery.com">jQuery</a> or <a href="http://youmightnotneedjquery.com">an alternative to it</a>, but since I only needed to show or hide a menu when a <a href="https://en.wikipedia.org/wiki/Hamburger_button">hamburger button</a> was clicked, I wrote a small snippet of <a href="http://vanilla-js.com">vanilla JS</a> to handle&nbsp;it.</p>
+<p>Being that recent releases of the major browsers all included support for <a href="https://medium.com/@purplecones/playing-with-css-grid-layout-a75836098370">CSS Grid</a>, I decided to use that for the layout itself. As someone who was a developer during the <a href="https://en.wikipedia.org/wiki/Browser_wars#First_Browser_War">First Browser War</a>, it's wonderful to see browser vendors collaborating to release new features so that they're universally&nbsp;available.</p>
+<p>To keep color as readable as possible with minimal distraction, I chose a monochromatic color scheme. Likewise, I wanted a font that was both stylistic and easily readable. After some perusing, I decided on the <a href="https://fonts.google.com/specimen/Libre+Baskerville">Libre Baskerville</a> font available from Google Fonts. For social media icons, I chose the excellent <a href="http://fontawesome.io/">Font Awesome</a> toolkit hosted on <a href="https://www.bootstrapcdn.com/fontawesome/">BootstrapCDN</a>. These are the only third-party dependencies downloaded by the client to view this&nbsp;site.</p>
+<h2>Writing the&nbsp;Content</h2>
+<p>Much of the page content was migrated over from my old site; I merely updated it in the process of porting it over to Markdown from HTML. For this, I use a <a href="https://github.com/elazar/blog-content/blob/master/scripts/convert.php">CLI script</a> that uses the wonderful <a href="https://github.com/thephpleague/html-to-markdown"><code>league/html-to-markdown</code></a> companion library to&nbsp;<a href="http://commonmark.thephpleague.com"><code>league/commonmark</code></a>.</p>
+<p>I made heavy use of referencing <a href="https://github.com/">GitHub</a> for things like <a href="https://github.com/search?o=desc&amp;q=author:elazar&amp;s=committer-date&amp;type=Commits&amp;utf8=%E2%9C%93">all the commits and issues I've authored</a> and a summary thereof in the form of my <a href="https://resume.github.io/?elazar">GitHub résumé</a>. Likewise, I referenced <a href="https://joind.in">Joind.in</a> to represent <a href="https://joind.in/user/elazar/talks">my past speaking&nbsp;engagements</a>.</p>
+<p>For the content license, I used the <a href="https://github.com/idleberg/Creative-Commons-Markdown">Markdown version</a> of the <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International&nbsp;license</a>.</p>
+<p>Finally, I took a page out of <a href="https://twitter.com/JeremyKendall">Jeremy Kendall</a>'s <a href="https://github.com/jeremykendall/resume">book</a> and moved my résumé to a <a href="https://github.com/elazar/resume">GitHub repository</a> so I could also maintain it using Markdown. In cases where a person or job application site requires a file, there are <a href="https://www.google.com/search?q=markdown+to+pdf">plenty of utilities</a> for converting documents from Markdown to&nbsp;PDF.</p>
+<h2>Deploying the&nbsp;Site</h2>
+<p>It turns out that Travis CI offers <a href="https://docs.travis-ci.com/user/deployment/pages/">support for deploying to GitHub Pages</a>, which I learned from <a href="https://dev.to/_evansalter/github-pages-and-single-page-apps">this blog post</a>.  With some tweaks, I was able to adapt its examples for my own site. Now, when I push to the <a href="https://github.com/elazar/blog-content">GitHub repository</a> housing the content for my blog, it will build and push the generated static files to <a href="https://github.com/elazar/elazar.github.io">my GitHub Pages&nbsp;repository</a>.</p>
+<p>I did run into <a href="https://github.com/travis-ci/travis-ci/issues/7538">one related issue</a> where pushing to Travis CI seems to wipe out the <a href="https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/">Custom Domain setting</a>.  Per the reporter's comments, <a href="https://help.github.com/articles/troubleshooting-custom-domains/#github-repository-setup-errors">adding a CNAME file</a> appears to fix&nbsp;this.</p>
+<p>Additionally, I was able to <a href="https://help.github.com/articles/securing-your-github-pages-site-with-https/">secure my site with HTTPS</a> using the <a href="https://www.cloudflare.com/plans/">Cloudflare Free&nbsp;plan</a>.</p>
+<h2>Epilogue</h2>
+<p>Overall, I'm fairly pleased with how this little experiment has turned out, and I hope to write more about the longer-term experiences of maintaining this blog in the future and that you'll enjoy my future writings. Thanks for&nbsp;reading!</p>
+
+        </div>
+    </article>
+</div>
+
+        <nav class="text-center py-12 mx-auto">
+    <div class="text-sm">&copy; 2007-2024 Matthew Turland.</div>
+</nav>
+
+    </body>
+</html>

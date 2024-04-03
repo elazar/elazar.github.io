@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+                        <id>https://matthewturland.com/feed.xml</id>
+                                <link href="https://matthewturland.com/feed.xml"></link>
+                                <title><![CDATA[Matthew Turland]]></title>
+                                <description>Blog posts from matthewturland.com</description>
+                                <language>en-US</language>
+                                <updated>2022-11-28T00:00:00+00:00</updated>
+                        <entry>
+            <title><![CDATA[Obsidian Support for League CommonMark]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2022/11/28/obsidian-support-for-league-commonmark" />
+            <id>https://matthewturland.com/2022/11/28/obsidian-support-for-league-commonmark</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[]]>
+            </summary>
+                                    <updated>2022-11-28T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Automating Personal Finance Monitoring, Part 2]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2021/05/30/automating-personal-finance-monitoring-part-2" />
+            <id>https://matthewturland.com/2021/05/30/automating-personal-finance-monitoring-part-2</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[]]>
+            </summary>
+                                    <updated>2021-05-30T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Automating Personal Finance Monitoring, Part 1]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2021/05/14/automating-personal-finance-monitoring-part-1" />
+            <id>https://matthewturland.com/2021/05/14/automating-personal-finance-monitoring-part-1</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[Anyone who's known me a while knows that I'm not really happy with the status quo when it comes to accessibility of personal financial information.]]>
+            </summary>
+                                    <updated>2021-05-14T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Bringing the Feed Back]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2021/05/09/bringing-the-feed-back" />
+            <id>https://matthewturland.com/2021/05/09/bringing-the-feed-back</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[After I launched the new look for this blog, I noticed something interesting about my traffic.]]>
+            </summary>
+                                    <updated>2021-05-09T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[A New Look]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2021/04/29/a-new-look" />
+            <id>https://matthewturland.com/2021/04/29/a-new-look</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[If you read my last post, you know I've been on the hunt for new solutions to power my web site. I found what I was looking for.]]>
+            </summary>
+                                    <updated>2021-04-29T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[A New Start]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2021/01/14/a-new-start" />
+            <id>https://matthewturland.com/2021/01/14/a-new-start</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[Nearly four years ago, the current incarnation of this site came to be. Since then, as they're wont to do, my needs and wants have changed...]]>
+            </summary>
+                                    <updated>2021-01-14T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Serverless Forum Keyword Monitoring with PHP]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2020/04/06/serverless-forum-keyword-monitoring-with-php" />
+            <id>https://matthewturland.com/2020/04/06/serverless-forum-keyword-monitoring-with-php</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[I came across a post entitled "How To Monitor a Forum for Keywords Using Python and AWS Lambda" and thought, "How difficult would it be to do this in PHP?"]]>
+            </summary>
+                                    <updated>2020-04-06T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Installing Fedora 31 on a Dell XPS 15 7590]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2020/02/25/installing-fedora-31-on-a-dell-xps-15-7590" />
+            <id>https://matthewturland.com/2020/02/25/installing-fedora-31-on-a-dell-xps-15-7590</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[This post is mostly intended to serve as notes to myself in how I set up my Dell XPS 15 7590 with Fedora 31.]]>
+            </summary>
+                                    <updated>2020-02-25T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Reduce, Map, and Filter: A Primer]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2019/09/02/reduce-map-and-filter-a-primer" />
+            <id>https://matthewturland.com/2019/09/02/reduce-map-and-filter-a-primer</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[In my experience, not enough people have a concrete understanding of the operations mentioned in the title of this post.]]>
+            </summary>
+                                    <updated>2019-09-02T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Building a Chore Slack Bot]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2019/03/20/building-a-chore-slack-bot" />
+            <id>https://matthewturland.com/2019/03/20/building-a-chore-slack-bot</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[A chronicle of my attempt at building a Slack bot using Node.js.]]>
+            </summary>
+                                    <updated>2019-03-20T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Monolog, Rollbar, and the Case of the Missing Exception]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2017/09/15/monolog-rollbar-and-the-case-of-the-missing-exception" />
+            <id>https://matthewturland.com/2017/09/15/monolog-rollbar-and-the-case-of-the-missing-exception</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[A "gotcha" I ran into when trying to log an exception with Monolog, why it happened, and how I resolved it.]]>
+            </summary>
+                                    <updated>2017-09-15T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Catching, Throwing, and Passing Exceptions]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2017/06/25/catching-throwing-and-passing-exceptions" />
+            <id>https://matthewturland.com/2017/06/25/catching-throwing-and-passing-exceptions</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[There's a frequent oversight I see in code I read when an exception is caught and an exception of a different class is thrown as a result.]]>
+            </summary>
+                                    <updated>2017-06-25T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[How Does Your Company Organize Its Internal Content?]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2017/06/04/how-does-your-company-organize-its-internal-content" />
+            <id>https://matthewturland.com/2017/06/04/how-does-your-company-organize-its-internal-content</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[A discussion of common needs surrounding organization and curation of digital information and the software that attempts to address these needs.]]>
+            </summary>
+                                    <updated>2017-06-04T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Syntax Highlighting with Prism]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2017/05/20/syntax-highlighting-with-prism" />
+            <id>https://matthewturland.com/2017/05/20/syntax-highlighting-with-prism</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[After completing a minimal initial iteration of this web site, I began examining what features it still lacked. Among these was syntax highlighting...]]>
+            </summary>
+                                    <updated>2017-05-20T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[A Fresh Start]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2017/05/13/a-fresh-start" />
+            <id>https://matthewturland.com/2017/05/13/a-fresh-start</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[For a while, I've been considering moving to a static site generator for easier maintainability. Ultimately, I made the decision to roll my own solution...]]>
+            </summary>
+                                    <updated>2017-05-13T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[On Remaining Employable]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2016/12/07/on-remaining-employable" />
+            <id>https://matthewturland.com/2016/12/07/on-remaining-employable</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[Here's some advice on remaining employable as a developer.]]>
+            </summary>
+                                    <updated>2016-12-07T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Why Aren&#039;t You Speaking?]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2016/12/07/why-arent-you-speaking" />
+            <id>https://matthewturland.com/2016/12/07/why-arent-you-speaking</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[Earlier today, I asked on Twitter why technical conference attendees hadn't been a speaker at a conference themselves. Here are a few of the responses...]]>
+            </summary>
+                                    <updated>2016-12-07T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[On Changing Jobs]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2016/03/16/on-changing-jobs" />
+            <id>https://matthewturland.com/2016/03/16/on-changing-jobs</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[An apprentice recently sent me an e-mail. He later told me that my response to his question was blog-worthy, so I thought I'd publish it for posterity.]]>
+            </summary>
+                                    <updated>2016-03-16T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[PHPUnit + XHProf = BOOM!]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2015/10/13/phpunit-xhprof-boom" />
+            <id>https://matthewturland.com/2015/10/13/phpunit-xhprof-boom</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[I ran into an issue recently while trying to run PHPUnit tests in an environment using XHProf.]]>
+            </summary>
+                                    <updated>2015-10-13T00:00:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Fixing High CPU Usage in Logstash]]></title>
+            <link rel="alternate" href="https://matthewturland.com/2015/03/31/fixing-high-cpu-usage-in-logstash" />
+            <id>https://matthewturland.com/2015/03/31/fixing-high-cpu-usage-in-logstash</id>
+            <author>
+                <name> <![CDATA[Matthew Turland]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[Some time after we’d set it up, we noticed the CPU usage on the Logstash server was constantly at or near 100%, even with only minor load.]]>
+            </summary>
+                                    <updated>2015-03-31T00:00:00+00:00</updated>
+        </entry>
+    </feed>

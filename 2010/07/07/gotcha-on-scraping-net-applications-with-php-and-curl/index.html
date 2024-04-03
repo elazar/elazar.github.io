@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Gotcha on Scraping .NET Applications with PHP and cURL - Matthew Turland</title>
+        <meta name="description" content="I recently wrote a PHP script to scrape data from a .NET application. In the process of developing it, I noticed something interesting that I thought I'd share.">
+        <meta name="theme-color" content="00908F">
+        <link rel="stylesheet" href="/css/tailwind.css?id=d85c79343964b7387a99">
+                <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Matthew Turland">
+        
+        <script src="/js/site.js?id=21ace46f226931347224"></script>
+    </head>
+    <body class="bg-white font-sans leading-normal text-grey-800 px-4 sm:px-10" x-data="{ showMobileNav: false }">
+        <nav class="flex flex-row-reverse lg:flex-row items-center justify-between lg:justify-start flex-wrap py-10 max-w-5xl mx-auto">
+    <div class="text-md antialiased font-medium">
+        <a href="/" class="block text-xl lg:inline-block lg:mr-12 font-black">Matthew Turland</a>
+    </div>
+    <div class="block lg:hidden">
+        <button class="flex items-center px-1 text-gray-800" x-bind:class="{'hidden': showMobileNav}" @click="showMobileNav = true">
+            <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Open Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+        </button>
+        <button class="items-center px-1 text-gray-800" x-bind:class="{'flex': showMobileNav, 'hidden': ! showMobileNav}" @click="showMobileNav = false" x-cloak>
+            <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Close Menu</title>
+                <path
+                    d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
+            </svg>
+        </button>
+    </div>
+    <div class="w-full lg:w-auto lg:flex lg:clear items-center" @click.away="showMobileNav = false" x-bind:class="{ 'hidden': ! showMobileNav }">
+                <a href="/archive" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Blog
+        </a>
+                <a href="/about" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            About Me
+        </a>
+                <a href="/contact" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Contact Me
+        </a>
+                <a href="/code" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Portfolio
+        </a>
+                <a href="/publications" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Publications
+        </a>
+                <a href="/presentations" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Presentations
+        </a>
+        
+    </div>
+    <div class="flex flex-grow justify-end mt-6 lg:mt-0">
+                <a href="https://github.com/elazar" class="ml-6 lg:ml-4" aria-label="Github" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 16 16" width="16" height="16">><g transform="matrix(0.6666666666666666,0,0,0.6666666666666666,0,0)"><path d="M12,0.28C5.373,0.278-0.002,5.649-0.004,12.276c-0.002,5.197,3.342,9.804,8.284,11.414h0.29 c0.551,0.034,1.026-0.385,1.06-0.936c0.003-0.041,0.003-0.083,0-0.124v-0.21c0-0.17,0-0.4,0-1.09c-0.02-0.132-0.092-0.251-0.2-0.33 c-0.118-0.095-0.272-0.132-0.42-0.1c-2.68,0.58-3.25-1.1-3.29-1.21C5.384,18.801,4.784,18.037,4,17.5 c-0.047-0.041-0.097-0.077-0.15-0.11c0.116-0.063,0.249-0.087,0.38-0.07c0.511,0.071,0.948,0.405,1.15,0.88 c0.804,1.4,2.572,1.913,4,1.16c0.15-0.065,0.258-0.2,0.29-0.36c0.038-0.463,0.236-0.897,0.56-1.23 c0.206-0.183,0.225-0.499,0.042-0.706c-0.081-0.091-0.191-0.149-0.312-0.164c-2.37-0.27-4.79-1.1-4.79-5.19 c-0.02-1.027,0.356-2.023,1.05-2.78C6.351,8.786,6.386,8.579,6.31,8.4C6.032,7.624,6.036,6.774,6.32,6 c0.924,0.164,1.791,0.559,2.52,1.15c0.122,0.086,0.277,0.112,0.42,0.07c0.893-0.242,1.814-0.367,2.74-0.37 c0.929,0.001,1.854,0.125,2.75,0.37c0.14,0.039,0.291,0.013,0.41-0.07c0.73-0.589,1.597-0.984,2.52-1.15 c0.272,0.77,0.272,1.61,0,2.38c-0.076,0.179-0.041,0.386,0.09,0.53c0.687,0.75,1.062,1.733,1.05,2.75c0,4.09-2.43,4.91-4.81,5.18 c-0.275,0.029-0.474,0.274-0.446,0.549c0.013,0.129,0.076,0.248,0.176,0.331c0.448,0.463,0.671,1.099,0.61,1.74v3.18 c-0.01,0.317,0.122,0.621,0.36,0.83c0.303,0.227,0.696,0.298,1.06,0.19c6.285-2.103,9.676-8.902,7.573-15.187 C21.71,3.592,17.147,0.296,12,0.28z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+        </a>
+                <a href="https://phpc.social/@elazar" class="ml-6 lg:ml-4" aria-label="Mastodon" rel="me">
+            <?xml version="1.0" standalone="no"?> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" > <svg class="fill-current h-6 w-8 hover:text-teal" width="1034px" height="1034px" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"> <path fill="currentColor" d="M499 112q-93 1 -166 11q-81 11 -128 33l-14 8q-16 10 -32 25q-22 21 -38 47q-21 33 -32 73q-14 47 -14 103v37q0 77 1 119q3 113 18 188q19 95 62 154q50 67 134 89q109 29 210 24q46 -3 88 -12q30 -7 55 -17l19 -8l-4 -75l-22 6q-28 6 -57 10q-41 6 -78 4q-53 -1 -80 -7 q-43 -8 -67 -30q-29 -25 -35 -72q-2 -14 -2 -29l25 6q31 6 65 10q48 7 93 9q42 2 92 -2q32 -2 88 -9t107 -30q49 -23 81.5 -54.5t38.5 -63.5q9 -45 13 -109q4 -46 5 -97v-41q0 -56 -14 -103q-11 -40 -32 -73q-16 -26 -38 -47q-15 -15 -32 -25q-12 -8 -14 -8 q-46 -22 -127 -33q-74 -10 -166 -11h-3zM367 267q73 0 109 56l24 39l24 -39q36 -56 109 -56q63 0 101 43t38 117v239h-95v-232q0 -74 -61 -74q-69 0 -69 88v127h-94v-127q0 -88 -69 -88q-61 0 -61 74v232h-95v-239q0 -74 38 -117t101 -43z" /> </svg>
+        </a>
+                <a href="https://ko-fi.com/elazar" class="ml-6 lg:ml-4" aria-label="Ko-Fi" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" aria-labelledby="simpleicons-ko-fi-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-ko-fi-icon">Ko-fi icon</title><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
+        </a>
+                <a href="/feed.xml" class="ml-6 lg:ml-4" aria-label="Feed" rel="me">
+            <?xml version="1.0" encoding="iso-8859-1"?> <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --> <svg class="fill-current h-6 w-8 hover:text-teal" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 448 448" style="enable-background:new 0 0 448 448;" xml:space="preserve"> <g> <g> <circle cx="64" cy="384" r="64"/> </g> </g> <g> <g> <path d="M0,149.344v85.344c117.632,0,213.344,95.68,213.344,213.312h85.312C298.656,283.328,164.672,149.344,0,149.344z"/> </g> </g> <g> <g> <path d="M0,0v85.344C200,85.344,362.688,248,362.688,448H448C448,200.96,247.04,0,0,0z"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
+        </a>
+                <a href="mailto:me@matthewturland.com" class="ml-6 lg:ml-4" aria-label="Email" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 16 16" width="16" height="16">><g transform="matrix(0.6666666666666666,0,0,0.6666666666666666,0,0)"><path d="M 2.25,4.5h19.5c0.828,0,1.5,0.672,1.5,1.5v12c0,0.828-0.672,1.5-1.5,1.5H2.25c-0.828,0-1.5-0.672-1.5-1.5V6 C0.75,5.172,1.422,4.5,2.25,4.5z " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 15.687,9.975L19.5,13.5 " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 8.313,9.975L4.5,13.5 " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 22.88,5.014l-9.513,6.56 c-0.823,0.568-1.911,0.568-2.734,0L1.12,5.014" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+        </a>
+        
+    </div>
+</nav>
+
+        <div class="max-w-5xl mx-auto relative content">
+    <article class="max-w-2xl mx-auto">
+        <h1>Gotcha on Scraping .NET Applications with PHP and cURL</h1>
+        <div class="bg-gray-800 inline-block text-sm mb-16 pr-4 pl-16 -ml-16 uppercase tracking-widest text-white py-1 rounded-r-full">
+            Published
+                            in <a href="/archive/tags/web-scraping" class="text-teal-light no-underline hover:text-white">Web Scraping</a>
+                        on Jul 7, 2010
+        </div>
+        <div class="content">
+            <p><em>Obligatory pitch: Many other useful tidbits like this can be yours by purchasing my book, <a href="https://www.phparch.com/books/web-scraping-with-php-2nd-edition/">php[architect]'s Guide to Web Scraping with&nbsp;PHP</a>.</em></p>
+<p>I recently wrote a PHP script to scrape data from a .NET application. In the process of developing this script, I noticed something interesting that I thought I'd share. In this case, I was using the <a href="http://php.net/manual/en/book.curl.php">cURL extension</a>, but the tip isn’t necessarily specific to that. One thing my script did was submit a <a href="https://en.wikipedia.org/wiki/POST_(HTTP)">POST request</a> to simulate a form submission. The code looked something like the sample&nbsp;below.</p>
+<pre><code class="language-php">$ch = curl_init();
+curl_setopt_array($ch, array(
+    CURLOPT_URL =&gt; 'http://...',
+    CURLOPT_POST =&gt; true,
+    CURLOPT_POSTFIELDS =&gt; array(
+        'field1' =&gt; 'value1',
+        // ...
+    ),
+    // ...
+));
+</code></pre>
+<p>The issue I ran into had to do with a behavior of the <code>CURLOPT_POSTFIELDS</code> setting that’s easy to overlook. This is a segment of its description from the PHP manual page for the <code>curl_setopt()</code>&nbsp;function.</p>
+<blockquote>
+<p>If <em>value</em> is an array, the <em>Content-Type</em> header will be set to&nbsp;<em>multipart/form-data</em>.</p>
+</blockquote>
+<p>If the form being submitted is not set to have an <code>enctype</code> attribute value of <code>multipart/form-data</code> in the form's markup, .NET returns a 500-level HTTP response with no further information on what causes the error (for security purposes). This presumably happens because it's expecting one value for the <code>Content-Type</code> request header and getting&nbsp;another.</p>
+<p>Setting <code>CURLOPT_HEADER</code> and <code>CURLOPT_VERBOSE</code> to <code>true</code> helped to reveal that this was the issue. The fix is pretty simple: instead of passing the array itself for <code>CURLOPT_POSTFIELDS</code>, pass the result of wrapping it in a call to the <code>http_build_query()</code> function (see <a href="http://php.net/http_build_query">its PHP manual page</a>). This converts it to a properly formatted query string, which causes cURL to use the default <code>Content-Type</code> header value of <code>application/x-www-form-urlencoded</code>&nbsp;instead.</p>
+<p>Tools like <a href="http://getfirebug.com">Firebug</a> can help you to examine requests made by a browser. Together with these settings for cURL, you can modify your script’s requests to match those of your browser as closely as possible, making gotchas like this less likely to trip you&nbsp;up.</p>
+
+        </div>
+    </article>
+</div>
+
+        <nav class="text-center py-12 mx-auto">
+    <div class="text-sm">&copy; 2007-2024 Matthew Turland.</div>
+</nav>
+
+    </body>
+</html>

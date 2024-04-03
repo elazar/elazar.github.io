@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Automating Personal Finance Monitoring, Part 1 - Matthew Turland</title>
+        <meta name="description" content="Anyone who's known me a while knows that I'm not really happy with the status quo when it comes to accessibility of personal financial information.">
+        <meta name="theme-color" content="00908F">
+        <link rel="stylesheet" href="/css/tailwind.css?id=d85c79343964b7387a99">
+                <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Matthew Turland">
+        
+        <script src="/js/site.js?id=21ace46f226931347224"></script>
+    </head>
+    <body class="bg-white font-sans leading-normal text-grey-800 px-4 sm:px-10" x-data="{ showMobileNav: false }">
+        <nav class="flex flex-row-reverse lg:flex-row items-center justify-between lg:justify-start flex-wrap py-10 max-w-5xl mx-auto">
+    <div class="text-md antialiased font-medium">
+        <a href="/" class="block text-xl lg:inline-block lg:mr-12 font-black">Matthew Turland</a>
+    </div>
+    <div class="block lg:hidden">
+        <button class="flex items-center px-1 text-gray-800" x-bind:class="{'hidden': showMobileNav}" @click="showMobileNav = true">
+            <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Open Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+        </button>
+        <button class="items-center px-1 text-gray-800" x-bind:class="{'flex': showMobileNav, 'hidden': ! showMobileNav}" @click="showMobileNav = false" x-cloak>
+            <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Close Menu</title>
+                <path
+                    d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
+            </svg>
+        </button>
+    </div>
+    <div class="w-full lg:w-auto lg:flex lg:clear items-center" @click.away="showMobileNav = false" x-bind:class="{ 'hidden': ! showMobileNav }">
+                <a href="/archive" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Blog
+        </a>
+                <a href="/about" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            About Me
+        </a>
+                <a href="/contact" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Contact Me
+        </a>
+                <a href="/code" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Portfolio
+        </a>
+                <a href="/publications" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Publications
+        </a>
+                <a href="/presentations" class="block  mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-4">
+            Presentations
+        </a>
+        
+    </div>
+    <div class="flex flex-grow justify-end mt-6 lg:mt-0">
+                <a href="https://github.com/elazar" class="ml-6 lg:ml-4" aria-label="Github" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 16 16" width="16" height="16">><g transform="matrix(0.6666666666666666,0,0,0.6666666666666666,0,0)"><path d="M12,0.28C5.373,0.278-0.002,5.649-0.004,12.276c-0.002,5.197,3.342,9.804,8.284,11.414h0.29 c0.551,0.034,1.026-0.385,1.06-0.936c0.003-0.041,0.003-0.083,0-0.124v-0.21c0-0.17,0-0.4,0-1.09c-0.02-0.132-0.092-0.251-0.2-0.33 c-0.118-0.095-0.272-0.132-0.42-0.1c-2.68,0.58-3.25-1.1-3.29-1.21C5.384,18.801,4.784,18.037,4,17.5 c-0.047-0.041-0.097-0.077-0.15-0.11c0.116-0.063,0.249-0.087,0.38-0.07c0.511,0.071,0.948,0.405,1.15,0.88 c0.804,1.4,2.572,1.913,4,1.16c0.15-0.065,0.258-0.2,0.29-0.36c0.038-0.463,0.236-0.897,0.56-1.23 c0.206-0.183,0.225-0.499,0.042-0.706c-0.081-0.091-0.191-0.149-0.312-0.164c-2.37-0.27-4.79-1.1-4.79-5.19 c-0.02-1.027,0.356-2.023,1.05-2.78C6.351,8.786,6.386,8.579,6.31,8.4C6.032,7.624,6.036,6.774,6.32,6 c0.924,0.164,1.791,0.559,2.52,1.15c0.122,0.086,0.277,0.112,0.42,0.07c0.893-0.242,1.814-0.367,2.74-0.37 c0.929,0.001,1.854,0.125,2.75,0.37c0.14,0.039,0.291,0.013,0.41-0.07c0.73-0.589,1.597-0.984,2.52-1.15 c0.272,0.77,0.272,1.61,0,2.38c-0.076,0.179-0.041,0.386,0.09,0.53c0.687,0.75,1.062,1.733,1.05,2.75c0,4.09-2.43,4.91-4.81,5.18 c-0.275,0.029-0.474,0.274-0.446,0.549c0.013,0.129,0.076,0.248,0.176,0.331c0.448,0.463,0.671,1.099,0.61,1.74v3.18 c-0.01,0.317,0.122,0.621,0.36,0.83c0.303,0.227,0.696,0.298,1.06,0.19c6.285-2.103,9.676-8.902,7.573-15.187 C21.71,3.592,17.147,0.296,12,0.28z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+        </a>
+                <a href="https://phpc.social/@elazar" class="ml-6 lg:ml-4" aria-label="Mastodon" rel="me">
+            <?xml version="1.0" standalone="no"?> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" > <svg class="fill-current h-6 w-8 hover:text-teal" width="1034px" height="1034px" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"> <path fill="currentColor" d="M499 112q-93 1 -166 11q-81 11 -128 33l-14 8q-16 10 -32 25q-22 21 -38 47q-21 33 -32 73q-14 47 -14 103v37q0 77 1 119q3 113 18 188q19 95 62 154q50 67 134 89q109 29 210 24q46 -3 88 -12q30 -7 55 -17l19 -8l-4 -75l-22 6q-28 6 -57 10q-41 6 -78 4q-53 -1 -80 -7 q-43 -8 -67 -30q-29 -25 -35 -72q-2 -14 -2 -29l25 6q31 6 65 10q48 7 93 9q42 2 92 -2q32 -2 88 -9t107 -30q49 -23 81.5 -54.5t38.5 -63.5q9 -45 13 -109q4 -46 5 -97v-41q0 -56 -14 -103q-11 -40 -32 -73q-16 -26 -38 -47q-15 -15 -32 -25q-12 -8 -14 -8 q-46 -22 -127 -33q-74 -10 -166 -11h-3zM367 267q73 0 109 56l24 39l24 -39q36 -56 109 -56q63 0 101 43t38 117v239h-95v-232q0 -74 -61 -74q-69 0 -69 88v127h-94v-127q0 -88 -69 -88q-61 0 -61 74v232h-95v-239q0 -74 38 -117t101 -43z" /> </svg>
+        </a>
+                <a href="https://ko-fi.com/elazar" class="ml-6 lg:ml-4" aria-label="Ko-Fi" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" aria-labelledby="simpleicons-ko-fi-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-ko-fi-icon">Ko-fi icon</title><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
+        </a>
+                <a href="/feed.xml" class="ml-6 lg:ml-4" aria-label="Feed" rel="me">
+            <?xml version="1.0" encoding="iso-8859-1"?> <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --> <svg class="fill-current h-6 w-8 hover:text-teal" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 448 448" style="enable-background:new 0 0 448 448;" xml:space="preserve"> <g> <g> <circle cx="64" cy="384" r="64"/> </g> </g> <g> <g> <path d="M0,149.344v85.344c117.632,0,213.344,95.68,213.344,213.312h85.312C298.656,283.328,164.672,149.344,0,149.344z"/> </g> </g> <g> <g> <path d="M0,0v85.344C200,85.344,362.688,248,362.688,448H448C448,200.96,247.04,0,0,0z"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
+        </a>
+                <a href="mailto:me@matthewturland.com" class="ml-6 lg:ml-4" aria-label="Email" rel="me">
+            <svg class="fill-current h-6 w-8 hover:text-teal" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 16 16" width="16" height="16">><g transform="matrix(0.6666666666666666,0,0,0.6666666666666666,0,0)"><path d="M 2.25,4.5h19.5c0.828,0,1.5,0.672,1.5,1.5v12c0,0.828-0.672,1.5-1.5,1.5H2.25c-0.828,0-1.5-0.672-1.5-1.5V6 C0.75,5.172,1.422,4.5,2.25,4.5z " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 15.687,9.975L19.5,13.5 " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 8.313,9.975L4.5,13.5 " stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M 22.88,5.014l-9.513,6.56 c-0.823,0.568-1.911,0.568-2.734,0L1.12,5.014" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+        </a>
+        
+    </div>
+</nav>
+
+        <div class="max-w-5xl mx-auto relative content">
+    <article class="max-w-2xl mx-auto">
+        <h1>Automating Personal Finance Monitoring, Part 1</h1>
+        <div class="bg-gray-800 inline-block text-sm mb-16 pr-4 pl-16 -ml-16 uppercase tracking-widest text-white py-1 rounded-r-full">
+            Published
+                            in <a href="/archive/tags/php" class="text-teal-light no-underline hover:text-white">PHP</a>, <a href="/archive/tags/web-scraping" class="text-teal-light no-underline hover:text-white">Web Scraping</a>
+                        on May 14, 2021
+        </div>
+        <div class="content">
+            <p>Anyone who's known me a while knows that I'm not really happy with the status quo when it comes to accessibility of personal financial&nbsp;information.</p>
+<p>I've often eschewed services like <a href="https://mint.intuit.com">Mint</a> in the past: while their interfaces may be helpful when it comes to examining trends or summarizing your overall financial position, I don't find them so useful for day-to-day management of finances or working toward financial&nbsp;goals.</p>
+<p>There are many things that I like about <a href="/2014/03/29/ledger-basics-and-habits">Ledger</a>, but its accessibility to those not comfortable with a shell (e.g. my wife) is limited and it requires a substantial amount of data entry to be be optimally&nbsp;useful.</p>
+<p>This data already exists within the financial institutions that I patronize; I just need a way of getting it out. Services like <a href="https://plaid.com/">Plaid</a> are good in concept, but I haven't found many solutions in that space, and the few I have seen have experienced relatively little adoption -- meaning that the number of financial institutions they work with are limited -- or generally target businesses rather than individual&nbsp;consumers.</p>
+<p>In theory, I could log into each of my accounts everyday, download CSV dumps or copy and paste recent transactions from each one, compile them into a table, and reconcile them. However, that would be excessively time-consuming, tedious, error-prone, and pretty dull work. I wanted a better solution. So, I set about writing&nbsp;one.</p>
+<h2>Approach</h2>
+<p>The idea of automating the manual process I described above seemed a relatively solid way to approach the&nbsp;problem.</p>
+<p>My cursory examination of the sites with which I'd be interacting suggested that using a low-level HTTP client like <a href="https://curl.se">curl</a> wasn't going to be sufficient for my use case: basic interactions with these sites involved a lot of complex client-side code and HTTP requests that I didn't particularly want to pull apart and try to reproduce&nbsp;reliably.</p>
+<p>The alternative, automating use of an actual browser, arguably amounts to doing what I or your average user of these sites would normally do manually and thus seemed like a better way to&nbsp;go.</p>
+<h2>Stack</h2>
+<p>I started by <a href="https://github.com/symfony/panther#installing-panther">installing <code>symfony/panther</code></a>. If you have <a href="https://www.phparch.com/books/web-scraping-with-php-2nd-edition/">my book</a>, you can find out more about this at the end of chapter 14. I supplemented this with <a href="https://symfony.com/doc/current/components/css_selector.html"><code>symfony/css-selector</code></a> to allow me to <a href="https://symfony.com/doc/current/components/dom_crawler.html#node-filtering">filter DOM nodes using CSS selectors</a>, which tend to be more concise than XPath expressions; see chapter 13 and the start of chapter 14 for more&nbsp;details.</p>
+<p>I also followed the <a href="https://github.com/symfony/panther#installing-chromedriver-and-geckodriver">recommendation of installing <code>dbrekelmans/bdi</code></a> to handle downloading and installing <a href="https://chromedriver.chromium.org/">chromedriver</a> and set it up as a <a href="https://getcomposer.org/doc/articles/scripts.md#command-events">Composer <code>post-install-cmd</code>&nbsp;script</a>.</p>
+<pre><code class="language-json">/* composer.json */
+{
+    &quot;require&quot;: {
+        &quot;dbrekelmans/bdi&quot;: &quot;^0.3.0&quot;,
+        &quot;symfony/css-selector&quot;: &quot;^5.2&quot;,
+        &quot;symfony/panther&quot;: &quot;^1.0&quot;
+    },  
+    &quot;scripts&quot;: {
+        &quot;post-install-cmd&quot;: &quot;bdi driver:chromedriver drivers&quot;
+    }   
+}
+</code></pre>
+<p>Finally, I started writing code to log into one of the sites I would be extracting data from... and hit my first&nbsp;blocker.</p>
+<h2>Impersonation</h2>
+<p>The behavior of the target sites changed when I tried to use an automated browser rather than a manual one: login requests would&nbsp;fail.</p>
+<p>I used Chrome Developer Tools to download a request sequence as a <a href="https://toolbox.googleapps.com/apps/har_analyzer/">HAR file</a>. Combing through it, I noticed a reference to <code>webdriver</code> in one of the request&nbsp;payloads.</p>
+<p>Additional digging turned up <a href="https://w3c.github.io/webdriver/webdriver-spec.html#interface">a related requirement in the WebDriver standard</a> and <a href="https://stackoverflow.com/questions/33225947/can-a-website-detect-when-you-are-using-selenium-with-chromedriver/52108199#52108199">a work-around for chromedriver</a> (bless Stack Overflow), which I incorporated into my&nbsp;project.</p>
+<pre><code class="language-json">/* composer.json */
+{
+    &quot;scripts&quot;: {
+        &quot;post-install-cmd&quot;: &quot;./scripts/post-install-cmd.sh&quot;
+    }
+}
+</code></pre>
+<pre><code class="language-bash"># ./scripts/post-install-cmd.sh
+
+#!/bin/bash
+./vendor/bin/bdi driver:chromedriver drivers
+sed -i 's/cdc_/dog_/g' drivers/chromedriver
+</code></pre>
+<p>This allowed me to get past the web application firewalls of most sites. However, there were a few for which this wasn't sufficient. More research turned up <a href="https://stackoverflow.com/questions/53039551/selenium-webdriver-modifying-navigator-webdriver-flag-to-prevent-selenium-detec/60403652#60403652">another measure</a> (again, bless Stack Overflow). This one was simpler and involved passing a CLI flag to chromedriver when invoking&nbsp;it.</p>
+<pre><code class="language-php">$client = \Symfony\Component\Panther\Client::createChromeClient(
+  null,
+  ['--disable-blink-features=AutomationControlled']
+);
+</code></pre>
+<p>Apparently there are <a href="https://stackoverflow.com/a/60647331/906821">numerous such ways</a> of fingerprinting an automated browser and, depending on the site, it can be difficult or next to impossible to find the right ones. Guess I just got lucky. Well,&nbsp;mostly...</p>
+<h2>Authentication</h2>
+<p>Once I got past the login form, I had to contend with other authentication&nbsp;measures.</p>
+<p>One common such measure was security questions. These are typically few in number and configured through account settings ahead of time. It was easy enough to detect them, cross-reference the given question with a pre-programmed set of questions and corresponding answers, and bypass&nbsp;them.</p>
+<p>The next such measure was more complicated: <a href="https://authy.com/what-is-2fa/">two-factor authentication</a>, or 2FA. Some sites offer e-mail as an option for 2FA, but many only offer SMS. So I had to figure out how to bypass both&nbsp;cases.</p>
+<p>For e-mail, I wanted messages used for 2FA to be as short-lived as possible: my script would log in to the relevant web site and initiate 2FA, then check an e-mail account, locate the message, extract the 2FA code from it, and delete the&nbsp;message.</p>
+<p>At first, I tried using Panther to access Gmail via its web UI. Unfortunately, Google's fingerprinting is fairly aggressive, and I wasn't able to figure out a quick way to bypass their login&nbsp;form.</p>
+<p>Fortunately, I found a different way: a new Gmail account with <a href="https://support.google.com/accounts/answer/6010255">&quot;Less secure app access&quot;</a> (air quotes intentional) turned on that I would access using the <a href="https://www.php.net/imap"><code>imap</code> extension</a> together with the <a href="https://packagist.org/packages/ddeboer/imap"><code>ddeboer/imap</code></a> library. The latter made it possible to access messages with an object-oriented API and very little&nbsp;code.</p>
+<p>This took care of the e-mail case, but I didn't know of an easy way to have my script automatically check text messages. It's possible I could've used something like <a href="https://www.twilio.com/sms">Twilio</a> for this, but that seemed like overkill. I also didn't want to lose the ability to receive 2FA text messages on my phone when I was trying to log into my account&nbsp;manually.</p>
+<p>2FA messages typically come from a dedicated number or have common identifying text in the content. The solution I ended up going with was using an app similar to <a href="https://play.google.com/store/apps/details?id=com.frzinapps.smsforward">this one</a> to automatically forward SMS messages meeting specific criteria to my new Gmail account, which my script would then access just as it did for institutions using e-mail for&nbsp;2FA.</p>
+<h2>Alerts</h2>
+<p>I can get away with only checking some accounts once per day. However, many financial institutions offer e-mail alerts for specific conditions, such as withdrawals, deposits, or transfers above a certain amount. This is useful for knowing when accounts need to be checked for&nbsp;changes.</p>
+<p>In cases where multiple e-mail addresses were supported, I set up alerts using my new e-mail account. In cases where only a single or primary e-mail address was supported for alerts, I set up <a href="https://support.google.com/mail/answer/6579?hl=en">filters</a> and <a href="https://support.google.com/mail/answer/10957?hl=en">forwarding</a> to send specific alerts to the new&nbsp;account.</p>
+<p>At that point, I was able to write a script that checks the new e-mail account every few minutes, identifies any new messages instigated by alerts and their sources, and checks those sources for changes to balances or recent&nbsp;activity.</p>
+<h2>Legwork</h2>
+<p>With the more challenging aspects behind me, all that remained was writing code to navigate through web interfaces; bypass any prompts, modals, or special offers; and extract and parse current account balances and dates, descriptions, amounts, and (where available) running balances from recent activity&nbsp;postings.</p>
+<p>I still need to write code to store this data and reconcile it, but that's a subject for another post. Hope you enjoyed hearing about my experiences with this project. Thanks for&nbsp;reading!</p>
+
+        </div>
+    </article>
+</div>
+
+        <nav class="text-center py-12 mx-auto">
+    <div class="text-sm">&copy; 2007-2024 Matthew Turland.</div>
+</nav>
+
+    </body>
+</html>
